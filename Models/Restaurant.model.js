@@ -54,6 +54,10 @@ const RestaurantSchema = mongoose.Schema({
       type: Boolean,
       default: false,
     },
+    logo: {
+      type: String,
+      required: true,
+    },
   },
 });
 

@@ -1,5 +1,6 @@
 const express = require("express");
 const nodeServer = express();
+const cors = require("cors");
 const PORT = 5000;
 const HOST = "localhost";
 
@@ -7,7 +8,6 @@ const HOST = "localhost";
 nodeServer.use("/", require("./app"));
 
 // CONFIGURE THE MIDDLEWARES
-
 // INJECT NODE APPLICATION
 
 nodeServer.listen(PORT, HOST, () => {
