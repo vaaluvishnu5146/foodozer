@@ -30,6 +30,38 @@ AuthRouter.get("/getAllUsers", async function (req, res, next) {
 
 /**
  * METHOD : POST
+ * PATH = /signin
+ */
+AuthRouter.post("/signin", async function (req, res, next) {
+  const { email, password } = req.body;
+  console.log(req.body);
+  try {
+    const user = await UserModel.findOne({
+      "contactDetails.primaryEmail": email,
+    });
+    console.log(user);
+    if (user && user._id) {
+      res.status(200).json({
+        success: true,
+        message: "Login successfull!!",
+        data: user,
+      });
+    } else {
+      res.status(200).json({
+        success: false,
+        message: "Account does not exist",
+      });
+    }
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: "Internal server error",
+    });
+  }
+});
+
+/**
+ * METHOD : POST
  * PATH = /createUser
  */
 AuthRouter.post("/createUser", async function (req, res, next) {

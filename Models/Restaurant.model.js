@@ -5,6 +5,10 @@ const RestaurantSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  restaurantDescription: {
+    type: String,
+    required: true,
+  },
   contactDetails: {
     primaryEmail: {
       type: String,
